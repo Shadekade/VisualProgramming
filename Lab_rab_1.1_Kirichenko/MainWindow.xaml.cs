@@ -6,35 +6,33 @@ namespace Lab_rab_1._1_Kirichenko
 {
     public partial class MainWindow : Window
     {
+        public Book Books { get; private set; }
+
         public MainWindow()
         {
             InitializeComponent();
         }
         private void CalculateButton_Click(object sender, RoutedEventArgs e)
         {
-           
+
             if (string.IsNullOrWhiteSpace(BookPagesTextBox.Text) || string.IsNullOrWhiteSpace(BookPriceTextBox.Text))
             {
-                
+                ResultsTextBlock.Text = "Пожалуйста, введите количество страниц и цену.";
                 return;
             }
             string name = BookNameTextBox.Text;
             int pages = int.Parse(BookPagesTextBox.Text);
-            decimal price = decimal.Parse(BookPriceTextBox.Text);
-            bool isProgrammingBook = name.StartsWith("Программирование", StringComparison.OrdinalIgnoreCase);
-            if (isProgrammingBook)
-            {
-                price *= 2;
-            }
-            decimal averagePageCost = (pages > 0) ? price / pages : 0;
-
+            decimal price = decimal.Parse(BookPriceTextBox.Text.Replace('.', ','));
+            Books = new Book(name, pages, price);
+            bool priceWasDoubled = Books.DoublePriceIfProgramming();
+            decimal avgPageCost = Books.CalculateAvgPageCost();
             string result = "";
-            if (isProgrammingBook)
+            if (priceWasDoubled)
             {
-                result += $"Цена удвоена.\nНовая цена: {price:C}\n";
+                result += $"Цена удвоена.\nНовая цена: {Books.Price:C}\n";
             }
 
-            result += $"Средняя стоимость страницы: {averagePageCost:C}";
+            result += $"Средняя стоимость страницы: {avgPageCost:C}";
 
             ResultsTextBlock.Text = result;
         }
