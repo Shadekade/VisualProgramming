@@ -1,0 +1,14 @@
+C:\Users\Redmibook\source\repos\Lab_rab_2Kirichenko\Lab_rab_2Kirichenko\obj\Debug\Lab_rab_2Kirichenko.csproj.AssemblyReference.cache
+C:\Users\Redmibook\source\repos\Lab_rab_2Kirichenko\Lab_rab_2Kirichenko\obj\Debug\MainWindow.baml
+C:\Users\Redmibook\source\repos\Lab_rab_2Kirichenko\Lab_rab_2Kirichenko\obj\Debug\MainWindow.g.cs
+C:\Users\Redmibook\source\repos\Lab_rab_2Kirichenko\Lab_rab_2Kirichenko\obj\Debug\App.g.cs
+C:\Users\Redmibook\source\repos\Lab_rab_2Kirichenko\Lab_rab_2Kirichenko\obj\Debug\Lab_rab_2Kirichenko_MarkupCompile.cache
+C:\Users\Redmibook\source\repos\Lab_rab_2Kirichenko\Lab_rab_2Kirichenko\obj\Debug\Lab_rab_2Kirichenko.g.resources
+C:\Users\Redmibook\source\repos\Lab_rab_2Kirichenko\Lab_rab_2Kirichenko\obj\Debug\Lab_rab_2Kirichenko.csproj.GenerateResource.cache
+C:\Users\Redmibook\source\repos\Lab_rab_2Kirichenko\Lab_rab_2Kirichenko\bin\Debug\Lab_rab_2Kirichenko.exe.config
+C:\Users\Redmibook\source\repos\Lab_rab_2Kirichenko\Lab_rab_2Kirichenko\bin\Debug\Lab_rab_2Kirichenko.exe
+C:\Users\Redmibook\source\repos\Lab_rab_2Kirichenko\Lab_rab_2Kirichenko\bin\Debug\Lab_rab_2Kirichenko.pdb
+C:\Users\Redmibook\source\repos\Lab_rab_2Kirichenko\Lab_rab_2Kirichenko\obj\Debug\Lab_rab_2Kirichenko.Properties.Resources.resources
+C:\Users\Redmibook\source\repos\Lab_rab_2Kirichenko\Lab_rab_2Kirichenko\obj\Debug\Lab_rab_2Kirichenko.csproj.CoreCompileInputs.cache
+C:\Users\Redmibook\source\repos\Lab_rab_2Kirichenko\Lab_rab_2Kirichenko\obj\Debug\Lab_rab_2Kirichenko.exe
+C:\Users\Redmibook\source\repos\Lab_rab_2Kirichenko\Lab_rab_2Kirichenko\obj\Debug\Lab_rab_2Kirichenko.pdb
