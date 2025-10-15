@@ -1,0 +1,108 @@
+﻿<Window x:Class="Lab_rab_1._2_Kirichenko.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab_rab_1._2_Kirichenko"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="200" Width="500" MinWidth="500" MinHeight="150">
+    <Grid>
+        <TabControl Margin="10">
+
+            <TabItem Header="Круг">
+                <Grid Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.Row="0" Grid.Column="0" Text="Радиус (R):" Margin="5"/>
+                    <TextBox x:Name="CircleRadiusTextBox" Grid.Row="0" Grid.Column="1" Margin="5" PreviewTextInput="Number_PreviewTextInput" PreviewKeyDown="Number_PreviewKeyDown"/>
+
+                    <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Orientation="Horizontal" Margin="0,10,0,5">
+                        <Button Content="Рассчитать Площадь" Margin="5,0" Width="200" Click="Circle_CalculateArea_Click"/>
+                        <Button Content="Рассчитать Периметр" Margin="5,0" Width="200" Click="Circle_CalculatePerimeter_Click"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="2" Grid.ColumnSpan="2" Margin="5">
+                        <TextBlock x:Name="CircleAreaResultsTextBlock" FontWeight="Bold" TextWrapping="Wrap" Margin="0,5,0,0"/>
+                        <TextBlock x:Name="CirclePerimeterResultsTextBlock" FontWeight="Bold" TextWrapping="Wrap" Margin="0,5,0,0"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Прямоугольник">
+                <Grid Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.Row="0" Grid.Column="0" Text="Ширина:" Margin="5"/>
+                    <TextBox x:Name="RectWidthTextBox" Grid.Row="0" Grid.Column="1" Margin="5" PreviewTextInput="Number_PreviewTextInput" PreviewKeyDown="Number_PreviewKeyDown"/>
+
+                    <TextBlock Grid.Row="1" Grid.Column="0" Text="Высота:" Margin="5"/>
+                    <TextBox x:Name="RectHeightTextBox" Grid.Row="1" Grid.Column="1" Margin="5" PreviewTextInput="Number_PreviewTextInput" PreviewKeyDown="Number_PreviewKeyDown"/>
+
+                    <StackPanel Grid.Row="2" Grid.ColumnSpan="2" Orientation="Horizontal" Margin="0,10,0,5">
+                        <Button Content="Рассчитать Площадь" Margin="5,0" Width="200" Click="Rectangle_CalculateArea_Click"/>
+                        <Button Content="Рассчитать Периметр" Margin="5,0" Width="200" Click="Rectangle_CalculatePerimeter_Click"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Margin="5">
+                        <TextBlock x:Name="RectangleAreaResultsTextBlock" FontWeight="Bold" TextWrapping="Wrap" Margin="0,5,0,0"/>
+                        <TextBlock x:Name="RectanglePerimeterResultsTextBlock" FontWeight="Bold" TextWrapping="Wrap" Margin="0,5,0,0"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Треугольник">
+                <Grid Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.Row="0" Grid.Column="0" Text="Сторона A:" Margin="5"/>
+                    <TextBox x:Name="TriSideATextBox" Grid.Row="0" Grid.Column="1" Margin="5" PreviewTextInput="Number_PreviewTextInput" PreviewKeyDown="Number_PreviewKeyDown"/>
+
+                    <TextBlock Grid.Row="1" Grid.Column="0" Text="Сторона B:" Margin="5"/>
+                    <TextBox x:Name="TriSideBTextBox" Grid.Row="1" Grid.Column="1" Margin="5" PreviewTextInput="Number_PreviewTextInput" PreviewKeyDown="Number_PreviewKeyDown"/>
+
+                    <TextBlock Grid.Row="2" Grid.Column="0" Text="Сторона C:" Margin="5"/>
+                    <TextBox x:Name="TriSideCTextBox" Grid.Row="2" Grid.Column="1" Margin="5" PreviewTextInput="Number_PreviewTextInput" PreviewKeyDown="Number_PreviewKeyDown"/>
+
+                    <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Orientation="Horizontal" Margin="0,10,0,5">
+                        <Button Content="Рассчитать Площадь" Margin="5,0" Width="200" Click="Triangle_CalculateArea_Click"/>
+                        <Button Content="Рассчитать Периметр" Margin="5,0" Width="200" Click="Triangle_CalculatePerimeter_Click"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="4" Grid.ColumnSpan="2" Margin="5">
+                        <TextBlock x:Name="TriangleAreaResultsTextBlock" FontWeight="Bold" TextWrapping="Wrap" Margin="0,5,0,0"/>
+                        <TextBlock x:Name="TrianglePerimeterResultsTextBlock" FontWeight="Bold" TextWrapping="Wrap" Margin="0,5,0,0"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+
+        </TabControl>
+    </Grid>
+</Window>
