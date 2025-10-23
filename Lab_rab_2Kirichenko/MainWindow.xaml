@@ -8,52 +8,30 @@
         WindowStartupLocation="CenterScreen"
         x:Name="ThisWindow">
 
-    <Window.Resources>
-        <Style x:Key="LightStyle">
-            <Style.Resources>
-                <Style TargetType="Window">
-                    <Setter Property="Background" Value="White" />
-                </Style>
-            </Style.Resources>
-
-            <Setter Property="TextElement.Foreground" Value="Black" />
-            <Setter Property="Control.Foreground" Value="Black" />
-            <Setter Property="Control.Background" Value="White" />
-        </Style>
-
-        <Style x:Key="DarkStyle">
-            <Style.Resources>
-                <Style TargetType="Window">
-                    <Setter Property="Background" Value="#1E1E1E" />
-                </Style>
-            </Style.Resources>
-
-            <Setter Property="TextElement.Foreground" Value="White" />
-            <Setter Property="Control.Foreground" Value="White" />
-            <Setter Property="Control.Background" Value="#333333" />
-            <Setter Property="Control.BorderBrush" Value="#444444" />
-        </Style>
-    </Window.Resources>
 
     <StackPanel x:Name="MainContentStackPanel" 
                 Margin="15" 
                 Background="Transparent" 
-                Style="{StaticResource LightStyle}">
+                Style="{DynamicResource ThemeStyle}">
 
         <TextBlock Text="Вычисление выражения S" 
                    FontSize="18" 
                    FontWeight="Bold" 
                    Margin="0,0,0,10"/>
 
+
         <WrapPanel Margin="0,0,0,10" HorizontalAlignment="Right">
             <TextBlock Text="Тема:" VerticalAlignment="Center" Margin="0,0,5,0"/>
             <ComboBox x:Name="ThemeComboBox" Width="100" SelectionChanged="ThemeComboBox_SelectionChanged"/>
         </WrapPanel>
 
-        <Border BorderBrush="#CCCCCC" BorderThickness="1" CornerRadius="5" Padding="10" Margin="0,5">
+
+        <Border BorderBrush="{DynamicResource ThemeBorderBrush}" 
+                BorderThickness="1" CornerRadius="5" Padding="10" Margin="0,5">
             <StackPanel>
                 <RadioButton x:Name="Radio1" IsChecked="True" GroupName="FormulaGroup" Margin="0,0,0,5">
                     <StackPanel Orientation="Horizontal">
+
                         <Image x:Name="R1Image" Height="30" Margin="5,0"/>
                     </StackPanel>
                 </RadioButton>
@@ -67,10 +45,13 @@
             </StackPanel>
         </Border>
 
-        <Border BorderBrush="#CCCCCC" BorderThickness="1" CornerRadius="5" Padding="10" Margin="0,5">
+
+        <Border BorderBrush="{DynamicResource ThemeBorderBrush}" 
+                BorderThickness="1" CornerRadius="5" Padding="10" Margin="0,5">
             <StackPanel>
                 <RadioButton x:Name="Radio2" GroupName="FormulaGroup" Margin="0,0,0,5">
                     <StackPanel Orientation="Horizontal">
+
                         <Image x:Name="R2Image" Height="30" Margin="5,0"/>
                     </StackPanel>
                 </RadioButton>
@@ -86,10 +67,13 @@
             </StackPanel>
         </Border>
 
-        <Border BorderBrush="#CCCCCC" BorderThickness="1" CornerRadius="5" Padding="10" Margin="0,5">
+
+        <Border BorderBrush="{DynamicResource ThemeBorderBrush}" 
+                BorderThickness="1" CornerRadius="5" Padding="10" Margin="0,5">
             <StackPanel>
                 <RadioButton x:Name="Radio3" GroupName="FormulaGroup" Margin="0,0,0,5">
                     <StackPanel Orientation="Horizontal">
+   
                         <Image x:Name="R3Image" Height="30" Margin="5,0"/>
                     </StackPanel>
                 </RadioButton>
@@ -107,10 +91,13 @@
             </StackPanel>
         </Border>
 
-        <Border BorderBrush="#CCCCCC" BorderThickness="1" CornerRadius="5" Padding="10" Margin="0,5">
+
+        <Border BorderBrush="{DynamicResource ThemeBorderBrush}" 
+                BorderThickness="1" CornerRadius="5" Padding="10" Margin="0,5">
             <StackPanel>
                 <RadioButton x:Name="Radio4" GroupName="FormulaGroup" Margin="0,0,0,5">
                     <StackPanel Orientation="Horizontal">
+
                         <Image x:Name="R4Image" Height="30" Margin="5,0"/>
                     </StackPanel>
                 </RadioButton>
@@ -126,10 +113,13 @@
             </StackPanel>
         </Border>
 
-        <Border BorderBrush="#CCCCCC" BorderThickness="1" CornerRadius="5" Padding="10" Margin="0,5">
+
+        <Border BorderBrush="{DynamicResource ThemeBorderBrush}" 
+                BorderThickness="1" CornerRadius="5" Padding="10" Margin="0,5">
             <StackPanel>
                 <RadioButton x:Name="Radio5" GroupName="FormulaGroup" Margin="0,0,0,5">
                     <StackPanel Orientation="Horizontal">
+
                         <Image x:Name="R5Image" Height="30" Margin="5,0"/>
                     </StackPanel>
                 </RadioButton>

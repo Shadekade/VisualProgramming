@@ -1,21 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Globalization; 
 
 namespace Lab_rab_2Kirichenko
 {
     public partial class MainWindow : Window
     {
+
+        private const string AssemblyName = "Lab_rab_2Kirichenko";
+
         public MainWindow()
         {
             InitializeComponent();
             InitializeComboBoxes();
             InitializeThemeComboBox();
-            LoadImagesFromResources();
+            LoadImagesFromResources(); 
             ApplyTheme("Светлая");
         }
 
@@ -30,23 +34,22 @@ namespace Lab_rab_2Kirichenko
             try
             {
 
-                string assemblyName = "Lab_rab_2Kirichenko";
-                R1Image.Source = new BitmapImage(new Uri($"pack://application:,,/{assemblyName};component/Resources/formula1.png"));
-                R2Image.Source = new BitmapImage(new Uri($"pack://application:,,/{assemblyName};component/Resources/formula2.png"));
-                R3Image.Source = new BitmapImage(new Uri($"pack://application:,,/{assemblyName};component/Resources/formula3.png"));
-                R4Image.Source = new BitmapImage(new Uri($"pack://application:,,/{assemblyName};component/Resources/formula4.png"));
-                R5Image.Source = new BitmapImage(new Uri($"pack://application:,,/{assemblyName};component/Resources/formula5.png"));
+                R1Image.Source = new BitmapImage(new Uri($"pack://application:,,/{AssemblyName};component/Resources/formula1.png"));
+                R2Image.Source = new BitmapImage(new Uri($"pack://application:,,/{AssemblyName};component/Resources/formula2.png"));
+                R3Image.Source = new BitmapImage(new Uri($"pack://application:,,/{AssemblyName};component/Resources/formula3.png"));
+                R4Image.Source = new BitmapImage(new Uri($"pack://application:,,/{AssemblyName};component/Resources/formula4.png"));
+                R5Image.Source = new BitmapImage(new Uri($"pack://application:,,/{AssemblyName};component/Resources/formula5.png"));
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show($"Ошибка загрузки изображений из ресурсов: {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
         private void InitializeComboBoxes()
         {
-            R1ComboF.ItemsSource = new List<double> { 4, 5, 6, 7, 8, 9 };
+
+            R1ComboF.ItemsSource = new List<double> { 4, 5, 6, 7, 8, 9 };
             R1ComboF.SelectedIndex = 0;
 
             R2ComboF.ItemsSource = new List<double> { 10, 20, 30, 40 };
@@ -61,7 +64,6 @@ namespace Lab_rab_2Kirichenko
             R4ComboC.SelectedIndex = 0;
         }
 
- 
         private void ThemeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (ThemeComboBox.SelectedItem is string selectedTheme)
@@ -72,68 +74,49 @@ namespace Lab_rab_2Kirichenko
 
         private void ApplyTheme(string themeName)
         {
-            Style newStackPanelStyle = null;
-            SolidColorBrush newBorderBrush;
-            SolidColorBrush newForegroundBrush; 
 
-            
-            if (Application.Current.Resources.Contains($"{themeName}Style"))
+            string themePath = themeName == "Темная"
+        ? "Themes/DarkTheme.xaml"
+        : "Themes/LightTheme.xaml";
+
+            var newThemeDict = new ResourceDictionary()
             {
-                newStackPanelStyle = (Style)Application.Current.Resources[$"{themeName}Style"];
-            }
+                Source = new Uri(themePath, UriKind.Relative)
+            };
 
-            if (themeName == "Темная")
+            var appResources = Application.Current.Resources.MergedDictionaries;
+
+
+            var existingThemeDict = appResources
+        .FirstOrDefault(d => d.Source != null && d.Source.OriginalString.Contains("Themes/"));
+
+            if (existingThemeDict != null)
             {
-                
-                ThisWindow.Background = new SolidColorBrush(Color.FromRgb(30, 30, 30)); 
-                
-                newBorderBrush = new SolidColorBrush(Color.FromRgb(68, 68, 68)); 
-                
-                newForegroundBrush = new SolidColorBrush(Colors.White); 
-            }
-            else 
-            { 
-                
-                ThisWindow.Background = new SolidColorBrush(Colors.White);
-                
-                newBorderBrush = new SolidColorBrush(Color.FromRgb(204, 204, 204)); 
-
-                newForegroundBrush = new SolidColorBrush(Colors.Black); 
+                appResources.Remove(existingThemeDict);
             }
 
 
-            if (newStackPanelStyle != null)
+            appResources.Add(newThemeDict);
+
+
+            if (newThemeDict.Contains("ThemeBackgroundBrush"))
             {
-                MainContentStackPanel.Style = newStackPanelStyle;
+                this.Background = (Brush)newThemeDict["ThemeBackgroundBrush"];
             }
 
 
-            TextElement.SetForeground(MainContentStackPanel, newForegroundBrush);
-
-
-            ApplyBorderColor(MainContentStackPanel, newBorderBrush);
-        }
-
-
-        private void ApplyBorderColor(DependencyObject parent, SolidColorBrush brush)
-        {
-            var count = VisualTreeHelper.GetChildrenCount(parent);
-            for (int i = 0; i < count; i++)
+            if (newThemeDict.Contains("ThemeStyle"))
             {
-                var child = VisualTreeHelper.GetChild(parent, i);
+                MainContentStackPanel.Style = null; 
+                MainContentStackPanel.Style = (Style)newThemeDict["ThemeStyle"]; 
+            }
 
-                if (child is Border border)
-                {
-                    border.BorderBrush = brush;
-                }
 
-                ApplyBorderColor(child, brush);
-            }
         }
 
 
 
-        private int SafeParseInt(string text)
+        private int SafeParseInt(string text)
         {
             if (int.TryParse(text, out int result))
             {
@@ -144,8 +127,10 @@ namespace Lab_rab_2Kirichenko
 
         private double SafeParseDouble(string text)
         {
-            string normalizedText = text.Replace(',', '.');
-            if (double.TryParse(normalizedText, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out double result))
+
+            string normalizedText = text.Replace(',', '.');
+
+            if (double.TryParse(normalizedText, NumberStyles.Any, CultureInfo.InvariantCulture, out double result))
             {
                 return result;
             }
@@ -220,7 +205,8 @@ namespace Lab_rab_2Kirichenko
             }
         }
 
-        private static class Formula1
+
+        private static class Formula1
         {
             public static double Calculate(double a, double f) => Math.Sin(f * a);
         }
