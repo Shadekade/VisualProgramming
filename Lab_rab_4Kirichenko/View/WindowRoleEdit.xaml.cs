@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,22 +11,25 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using Lab_rab_4Kirichenko.Helper;
 using Lab_rab_4Kirichenko.Model;
-using Lab_rab_4Kirichenko.ViewModel;
 
 namespace Lab_rab_4Kirichenko.View
 {
     /// <summary>
-    /// Логика взаимодействия для WindowEmployee.xaml
+    /// Логика взаимодействия для WindowRoleEdit.xaml
     /// </summary>
-    public partial class WindowEmployee : Window
+    public partial class WindowRoleEdit : Window
     {
-        public WindowEmployee()
+        public WindowRoleEdit(Role role)
         {
             InitializeComponent();
+            DataContext = role;
+        }
 
-            DataContext = new PersonViewModel();
+        
+        private void Accept_Click(object sender, RoutedEventArgs e)
+        {
+            this.DialogResult = true;
         }
     }
 }

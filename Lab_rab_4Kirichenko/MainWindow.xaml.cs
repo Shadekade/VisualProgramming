@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Lab_rab_4Kirichenko.View;
+using Lab_rab_4Kirichenko.ViewModel;
 
 namespace Lab_rab_4Kirichenko
 {
@@ -24,6 +25,7 @@ namespace Lab_rab_4Kirichenko
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = new ThemeViewModel();
         }
 
         private void Employee_OnClick(object sender, RoutedEventArgs e)

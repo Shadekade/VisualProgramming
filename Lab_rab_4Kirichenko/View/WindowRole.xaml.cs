@@ -23,8 +23,8 @@ namespace Lab_rab_4Kirichenko.View
         public WindowRole()
         {
             InitializeComponent();
-            RoleViewModel vmRole = new RoleViewModel();
-            lvRole.ItemsSource = vmRole.ListRole;
+
+            DataContext = new RoleViewModel();
         }
     }
 }

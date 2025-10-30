@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Shadekade\source\repos\Lab_rab_4Kirichenko\Lab_rab_4Kirichenko\App.xaml
-3-368639367
+7-1544268444
 
-14-1341890919
+20-1713678036
 13-1310406943
-MainWindow.xaml;View\WindowEmployee.xaml;View\WindowRole.xaml;
+MainWindow.xaml;Themes\DarkTheme.xaml;Themes\LightTheme.xaml;View\WindowEmployee.xaml;View\WindowPerson.xaml;View\WindowRole.xaml;View\WindowRoleEdit.xaml;
 
 False
 
