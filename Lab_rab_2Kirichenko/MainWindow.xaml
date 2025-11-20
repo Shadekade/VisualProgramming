@@ -1,0 +1,143 @@
+﻿<Window x:Class="Lab_rab_2Kirichenko.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Вычисление S" 
+        Height="Auto" Width="550" 
+        SizeToContent="Height" 
+        ResizeMode="CanMinimize" 
+        WindowStartupLocation="CenterScreen"
+        x:Name="ThisWindow">
+
+
+    <StackPanel x:Name="MainContentStackPanel" 
+                Margin="15" 
+                Background="Transparent" 
+                Style="{DynamicResource ThemeStyle}">
+
+        <TextBlock Text="Вычисление выражения S" 
+                   FontSize="18" 
+                   FontWeight="Bold" 
+                   Margin="0,0,0,10"/>
+
+
+        <WrapPanel Margin="0,0,0,10" HorizontalAlignment="Right">
+            <TextBlock Text="Тема:" VerticalAlignment="Center" Margin="0,0,5,0"/>
+            <ComboBox x:Name="ThemeComboBox" Width="100" SelectionChanged="ThemeComboBox_SelectionChanged"/>
+        </WrapPanel>
+
+
+        <Border BorderBrush="{DynamicResource ThemeBorderBrush}" 
+                BorderThickness="1" CornerRadius="5" Padding="10" Margin="0,5">
+            <StackPanel>
+                <RadioButton x:Name="Radio1" IsChecked="True" GroupName="FormulaGroup" Margin="0,0,0,5">
+                    <StackPanel Orientation="Horizontal">
+
+                        <Image x:Name="R1Image" Height="30" Margin="5,0"/>
+                    </StackPanel>
+                </RadioButton>
+                <WrapPanel Margin="20,5,5,5" IsEnabled="{Binding IsChecked, ElementName=Radio1}">
+                    <TextBlock Text="a = " VerticalAlignment="Center" Margin="0,0,5,0"/>
+                    <TextBox x:Name="R1TextA" Width="80" Text="1.0" Margin="0,0,15,0"/>
+                    <TextBlock Text="f ∈ " VerticalAlignment="Center" Margin="0,0,5,0"/>
+                    <ComboBox x:Name="R1ComboF" Width="80" SelectedIndex="0"/>
+                </WrapPanel>
+                <TextBlock x:Name="R1ResultTextBlock" Text="Ответ: 0.00" FontWeight="Bold" Margin="20,10,0,0" Foreground="#007ACC" IsEnabled="{Binding IsChecked, ElementName=Radio1}"/>
+            </StackPanel>
+        </Border>
+
+
+        <Border BorderBrush="{DynamicResource ThemeBorderBrush}" 
+                BorderThickness="1" CornerRadius="5" Padding="10" Margin="0,5">
+            <StackPanel>
+                <RadioButton x:Name="Radio2" GroupName="FormulaGroup" Margin="0,0,0,5">
+                    <StackPanel Orientation="Horizontal">
+
+                        <Image x:Name="R2Image" Height="30" Margin="5,0"/>
+                    </StackPanel>
+                </RadioButton>
+                <WrapPanel Margin="20,5,5,5" IsEnabled="{Binding IsChecked, ElementName=Radio2}">
+                    <TextBlock Text="a = " VerticalAlignment="Center" Margin="0,0,5,0"/>
+                    <TextBox x:Name="R2TextA" Width="80" Text="1.0" Margin="0,0,15,0"/>
+                    <TextBlock Text="b = " VerticalAlignment="Center" Margin="0,0,5,0"/>
+                    <TextBox x:Name="R2TextB" Width="80" Text="2.0" Margin="0,0,15,0"/>
+                    <TextBlock Text="f ∈ " VerticalAlignment="Center" Margin="0,0,5,0"/>
+                    <ComboBox x:Name="R2ComboF" Width="80" SelectedIndex="0"/>
+                </WrapPanel>
+                <TextBlock x:Name="R2ResultTextBlock" Text="Ответ: 0.00" FontWeight="Bold" Margin="20,10,0,0" Foreground="#007ACC" IsEnabled="{Binding IsChecked, ElementName=Radio2}"/>
+            </StackPanel>
+        </Border>
+
+
+        <Border BorderBrush="{DynamicResource ThemeBorderBrush}" 
+                BorderThickness="1" CornerRadius="5" Padding="10" Margin="0,5">
+            <StackPanel>
+                <RadioButton x:Name="Radio3" GroupName="FormulaGroup" Margin="0,0,0,5">
+                    <StackPanel Orientation="Horizontal">
+   
+                        <Image x:Name="R3Image" Height="30" Margin="5,0"/>
+                    </StackPanel>
+                </RadioButton>
+                <WrapPanel Margin="20,5,5,5" IsEnabled="{Binding IsChecked, ElementName=Radio3}">
+                    <TextBlock Text="a = " VerticalAlignment="Center" Margin="0,0,5,0"/>
+                    <TextBox x:Name="R3TextA" Width="80" Text="1.0" Margin="0,0,15,0"/>
+                    <TextBlock Text="b = " VerticalAlignment="Center" Margin="0,0,5,0"/>
+                    <TextBox x:Name="R3TextB" Width="80" Text="2.0" Margin="0,0,15,0"/>
+                    <TextBlock Text="c ∈ " VerticalAlignment="Center" Margin="0,0,5,0"/>
+                    <ComboBox x:Name="R3ComboC" Width="80" SelectedIndex="0" Margin="0,0,15,0"/>
+                    <TextBlock Text="d ∈ " VerticalAlignment="Center" Margin="0,0,5,0"/>
+                    <ComboBox x:Name="R3ComboD" Width="80" SelectedIndex="0"/>
+                </WrapPanel>
+                <TextBlock x:Name="R3ResultTextBlock" Text="Ответ: 0.00" FontWeight="Bold" Margin="20,10,0,0" Foreground="#007ACC" IsEnabled="{Binding IsChecked, ElementName=Radio3}"/>
+            </StackPanel>
+        </Border>
+
+
+        <Border BorderBrush="{DynamicResource ThemeBorderBrush}" 
+                BorderThickness="1" CornerRadius="5" Padding="10" Margin="0,5">
+            <StackPanel>
+                <RadioButton x:Name="Radio4" GroupName="FormulaGroup" Margin="0,0,0,5">
+                    <StackPanel Orientation="Horizontal">
+
+                        <Image x:Name="R4Image" Height="30" Margin="5,0"/>
+                    </StackPanel>
+                </RadioButton>
+                <WrapPanel Margin="20,5,5,5" IsEnabled="{Binding IsChecked, ElementName=Radio4}">
+                    <TextBlock Text="a = " VerticalAlignment="Center" Margin="0,0,5,0"/>
+                    <TextBox x:Name="R4TextA" Width="80" Text="1.0" Margin="0,0,15,0"/>
+                    <TextBlock Text="d = " VerticalAlignment="Center" Margin="0,0,5,0"/>
+                    <TextBox x:Name="R4TextD" Width="80" Text="5" Margin="0,0,15,0"/>
+                    <TextBlock Text="c ∈ " VerticalAlignment="Center" Margin="0,0,5,0"/>
+                    <ComboBox x:Name="R4ComboC" Width="80" SelectedIndex="0"/>
+                </WrapPanel>
+                <TextBlock x:Name="R4ResultTextBlock" Text="Ответ: 0.00" FontWeight="Bold" Margin="20,10,0,0" Foreground="#007ACC" IsEnabled="{Binding IsChecked, ElementName=Radio4}"/>
+            </StackPanel>
+        </Border>
+
+
+        <Border BorderBrush="{DynamicResource ThemeBorderBrush}" 
+                BorderThickness="1" CornerRadius="5" Padding="10" Margin="0,5">
+            <StackPanel>
+                <RadioButton x:Name="Radio5" GroupName="FormulaGroup" Margin="0,0,0,5">
+                    <StackPanel Orientation="Horizontal">
+
+                        <Image x:Name="R5Image" Height="30" Margin="5,0"/>
+                    </StackPanel>
+                </RadioButton>
+                <WrapPanel Margin="20,5,5,5" IsEnabled="{Binding IsChecked, ElementName=Radio5}">
+                    <TextBlock Text="p = " VerticalAlignment="Center" Margin="0,0,5,0"/>
+                    <TextBox x:Name="R5TextP" Width="80" Text="1.0" Margin="0,0,15,0"/>
+                    <TextBlock Text="y = " VerticalAlignment="Center" Margin="0,0,5,0"/>
+                    <TextBox x:Name="R5TextY" Width="80" Text="2.0" Margin="0,0,15,0"/>
+                    <TextBlock Text="N = " VerticalAlignment="Center" Margin="0,0,5,0"/>
+                    <TextBox x:Name="R5TextN" Width="80" Text="5" Margin="0,0,15,0"/>
+                    <TextBlock Text="K = " VerticalAlignment="Center" Margin="0,0,5,0"/>
+                    <TextBox x:Name="R5TextK" Width="80" Text="10" Margin="0,0,15,0"/>
+                </WrapPanel>
+                <TextBlock x:Name="R5ResultTextBlock" Text="Ответ: 0.00" FontWeight="Bold" Margin="20,10,0,0" Foreground="#007ACC" IsEnabled="{Binding IsChecked, ElementName=Radio5}"/>
+            </StackPanel>
+        </Border>
+
+        <Button Content="Считать" Width="150" Height="30" Margin="0,20,0,5" Click="Calc_Click"/>
+
+    </StackPanel>
+</Window>
