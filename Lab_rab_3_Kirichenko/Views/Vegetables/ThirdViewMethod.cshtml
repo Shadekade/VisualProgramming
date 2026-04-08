@@ -1,0 +1,33 @@
+﻿@using Lab_rab_3_Kirichenko.Models
+@model IEnumerable<IGrouping<char, Vegetable>>
+
+@{
+    ViewData["Title"] = "Сгруппированные овощи";
+}
+
+<h2>Список овощей по алфавиту</h2>
+
+@if (Model == null || !Model.Any())
+{
+    <div class="alert alert-info" role="alert">
+        <strong>Внимание!</strong> Список пуст.
+    </div>
+}
+else
+{
+    @foreach (var group in Model)
+    {
+        <h3>Буква: @group.Key</h3>
+        <ul>
+            @foreach (var vegetable in group)
+            {
+                <li>@vegetable.Name</li>
+            }
+        </ul>
+    }
+}
+
+<hr />
+<div class="text-left">
+    <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">Вернуться на главную</a>
+</div>
