@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Главная страница";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Выберите задание для просмотра списка овощей</h1>
+
+    <hr />
+
+    <div class="d-grid gap-2 d-md-block">
+        <a asp-controller="Vegetables" asp-action="FirstViewMethod" class="btn btn-primary btn-lg">
+            Задание 1: Список
+        </a>
+        <a asp-controller="Vegetables" asp-action="SecondViewMethod" class="btn btn-success btn-lg">
+            Задание 2: Таблица
+        </a>
+        <a asp-controller="Vegetables" asp-action="ThirdViewMethod" class="btn btn-warning btn-lg">
+            Задание 3: Группировка
+        </a>
+    </div>
+</div>

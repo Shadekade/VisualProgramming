@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Lab_rab_3_Kirichenko.Models.Vegetable>
+
+@{
+    ViewData["Title"] = "Список Овощей";
+}
+
+<h2>Список овощей (простой вывод)</h2>
+
+@if (Model == null || !Model.Any())
+{
+    <div class="alert alert-info" role="alert">
+        <strong>Внимание!</strong> Список пуст.
+    </div>
+}
+else
+{
+    <p>В данном методе мы выводим данные из коллекции в виде обычного списка:</p>
+    <ol>
+        @foreach (var item in Model)
+        {
+            <li>@item.Name (ID: @item.Id)</li>
+        }
+    </ol>
+}
+
+<hr />
+<div class="btn-group">
+    <a asp-action="SecondViewMethod" class="btn btn-info">Перейти к таблице (Задание 2)</a>
+    <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">Вернуться на главную</a>
+</div>

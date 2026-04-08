@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Lab_rab_3_Kirichenko.props" />
+</Project>

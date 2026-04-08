@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Lab_rab_3_Kirichenko.Models.Vegetable>
+
+@{
+    ViewData["Title"] = "Таблица";
+}
+
+<h2>Список овощей (табличный вывод)</h2>
+
+@if (Model == null || !Model.Any())
+{
+    <div class="alert alert-info" role="alert">
+        <strong>Внимание!</strong> Список пуст.
+    </div>
+}
+else
+{
+    <p>В этом представлении данные отображаются в отсортированном порядке внутри HTML-таблицы:</p>
+    <table class="table table-striped table-bordered">
+        <thead class="thead-light">
+            <tr>
+                <th>Идентификатор (Id)</th>
+                <th>Наименование овоща</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 8px;
+        text-align: left;
+        border: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+</style>
+
+<hr />
+<div class="btn-group">
+    <a asp-action="ThirdViewMethod" class="btn btn-info">Перейти к группировке (Задание 3)</a>
+    <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">Вернуться на главную</a>
+</div>
